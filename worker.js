@@ -266,7 +266,7 @@ async function handleUpdate(update, env, origin) {
   if (text === "/map" || text === BUTTONS.map) {
     await telegram(env, "sendMessage", {
       chat_id: chatId,
-      text: "\u0412\u0456\u0434\u043A\u0440\u0438\u0439 \u043A\u0430\u0440\u0442\u0443 \u2014 \u0442\u0430\u043C \u0454 \u0432\u0441\u0456 66 \u0437\u043D\u0430\u0439\u0434\u0435\u043D\u0438\u0445 \u0442\u043E\u0447\u043E\u043A, \u0444\u0456\u043B\u044C\u0442\u0440\u0438 \u0437\u0430 \u0446\u0456\u043D\u043E\u044E \u0442\u0430 \u0448\u0432\u0438\u0434\u043A\u0456\u0441\u0442\u044E.",
+      text: "Відкрий карту — там є всі " + STATIONS.length + " знайдених точок, фільтри за ціною та швидкістю.",
       reply_markup: {
         inline_keyboard: [[{ text: "\u{1F5FA} \u0412\u0456\u0434\u043A\u0440\u0438\u0442\u0438 \u043A\u0430\u0440\u0442\u0443", web_app: { url: origin + "/map" } }]]
       }

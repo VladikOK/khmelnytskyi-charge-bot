@@ -33,10 +33,10 @@ npm run deploy
 
 ## Оновлення знімка
 
-Генератор приймає JSON-масиви з відповідями `GET /api/web/location/{id}?charging=1` публічної карти EVBOOST і друкує готовий модуль у stdout:
+Генератор приймає JSON-масиви попередньо нормалізованих даних із `GET /api/web/location/{id}?charging=1` публічної карти EVBOOST і друкує готовий модуль у stdout. Перед генерацією перенеси фактичні конектори з `charging.connectors` у поле `chargers`, зберігши поля `alias`, `power`, `price` і, за наявності, `parkingFee`. Сирі ціни з верхньорівневого `chargers` не використовуй: вони можуть відрізнятися між запитами.
 
 ```bash
-SNAPSHOT_DATE=2026-09-16 npm run refresh:data -- details-part1.json details-part2.json > stations-data.js
+SNAPSHOT_DATE=2026-09-16 npm run --silent refresh:data -- details-part1.json details-part2.json > stations-data.js
 ```
 
 Після генерації перевір кількість локацій, синтаксис і `/health`, а потім виконай деплой.
